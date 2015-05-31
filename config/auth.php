@@ -28,7 +28,7 @@ return [
 	|
 	*/
 
-	'model' => 'ThreeAccents\User',
+	'model' => 'ThreeAccents\Users\Entities\User',
 
 	/*
 	|--------------------------------------------------------------------------
