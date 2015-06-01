@@ -1,5 +1,7 @@
 <?php
+
 return array(
+
     /*
      |--------------------------------------------------------------------------
      | Laravel CORS Defaults
@@ -13,7 +15,7 @@ return array(
      | to accept any value, the allowed methods however have to be explicitly listed.
      |
      */
-    'defaults' => [
+    'defaults' => array(
         'supportsCredentials' => false,
         'allowedOrigins' => array(),
         'allowedHeaders' => array(),
@@ -21,7 +23,8 @@ return array(
         'exposedHeaders' => array(),
         'maxAge' => 0,
         'hosts' => array(),
-    ],
+    ),
+
     'paths' => array(
         'api/*' => array(
             'allowedOrigins' => array('*'),
@@ -37,4 +40,5 @@ return array(
             'hosts' => array('api.*'),
         ),
     ),
+
 );

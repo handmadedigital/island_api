@@ -65,7 +65,9 @@ abstract class ApiController extends BaseController
 	protected function respondWithCollection($collection, $callback, $resource_key)
 	{
 		$resource = new Collection($collection, $callback, $resource_key);
+
 		$rootScope = $this->fractal->createData($resource);
+
 		return $this->respondWithArray($rootScope->toArray());
 	}
 
@@ -78,7 +80,9 @@ abstract class ApiController extends BaseController
 	protected function respondWithItem($item, $callback, $resource_key)
 	{
 		$resource = new Item($item, $callback, $resource_key);
+
 		$rootScope = $this->fractal->createData($resource);
+
 		return $this->respondWithArray($rootScope->toArray());
 	}
 
@@ -90,6 +94,7 @@ abstract class ApiController extends BaseController
 	protected function respondWithArray(array $array, array $headers = [])
 	{
 		$response = response()->json($array, $this->statusCode, $headers);
+
 		// $response->header('Content-Type', 'application/json');
 		return $response;
 	}
