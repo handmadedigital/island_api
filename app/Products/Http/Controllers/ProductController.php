@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Input;
 use League\Fractal\Manager;
 use ThreeAccents\Core\Http\Controllers\ApiController;
+use ThreeAccents\Exceptions\ProductNotFoundException;
 use ThreeAccents\Products\Entities\Product;
 use ThreeAccents\Products\Http\Transformers\ProductTransformer;
 use ThreeAccents\Products\Services\ProductService;
@@ -30,12 +31,32 @@ class ProductController extends ApiController
     public function getProducts()
     {
         $includes = Input::get('includes') ?: "";
+
         $limit = Input::get('limit') ?: 20;
 
         $this->fractal->parseIncludes($includes);
 
-        $products = $this->service->getPaginated($limit);
+        $products = $this->service->getProducts($limit);
 
         return  $this->respondWithCollection($products, new ProductTransformer, 'products');
+    }
+
+    public function getProduct($product_slug)
+    {
+        $includes = Input::get('includes') ?: "";
+
+        $this->fractal->parseIncludes($includes);
+
+        try
+        {
+            $product = $this->service->getProduct($product_slug);
+        }
+        catch(ProductNotFoundException $e)
+        {
+            $this->setStatusCode(404);
+            return $this->respondWithError($e->getMessage(), 420);
+        }
+
+        return  $this->respondWithItem($product, new ProductTransformer, 'product');
     }
 }
