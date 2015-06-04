@@ -62,9 +62,9 @@ abstract class ApiController extends BaseController
 	 * @param $resource_key
 	 * @return \Symfony\Component\HttpFoundation\Response
 	 */
-	protected function respondWithCollection($collection, $callback, $resource_key)
+	protected function respondWithCollection($collection, $callback)
 	{
-		$resource = new Collection($collection, $callback, $resource_key);
+		$resource = new Collection($collection, $callback);
 
 		$rootScope = $this->fractal->createData($resource);
 
@@ -77,9 +77,9 @@ abstract class ApiController extends BaseController
 	 * @param $resource_key
 	 * @return \Symfony\Component\HttpFoundation\Response
 	 */
-	protected function respondWithItem($item, $callback, $resource_key)
+	protected function respondWithItem($item, $callback)
 	{
-		$resource = new Item($item, $callback, $resource_key);
+		$resource = new Item($item, $callback);
 
 		$rootScope = $this->fractal->createData($resource);
 

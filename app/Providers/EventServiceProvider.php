@@ -11,8 +11,9 @@ class EventServiceProvider extends ServiceProvider {
 	 * @var array
 	 */
 	protected $listen = [
-		'event.name' => [
-			'EventListener',
+		'ThreeAccents\Events\OrderWasAdded' => [
+			'ThreeAccents\Handlers\Events\OrderWasAddedListener@addOrderDetails',
+			'ThreeAccents\Handlers\Events\OrderWasAddedListener@removeCartItems',
 		],
 	];
 

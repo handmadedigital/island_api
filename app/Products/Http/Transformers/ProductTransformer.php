@@ -7,7 +7,9 @@ use ThreeAccents\Products\Entities\Product;
 class ProductTransformer extends TransformerAbstract
 {
     protected $availableIncludes = [
-        'categories'
+        'categories',
+        'variants',
+        'options'
     ];
 
     public function transform(Product $product)
@@ -25,6 +27,22 @@ class ProductTransformer extends TransformerAbstract
     {
         $categories = $product->categories;
 
-        return $this->collection($categories, new CategoryTransformer(), 'categories');
+        return $this->collection($categories, new CategoryTransformer());
     }
+
+
+    public function includeVariants(Product $product)
+    {
+        $variants = $product->variants;
+
+        return $this->collection($variants, new VariantTransformer());
+    }
+
+    public function includeOptions(Product $product)
+    {
+        $options = $product->options;
+
+        return $this->collection($options, new ProductOptionTransformer());
+    }
+
 }

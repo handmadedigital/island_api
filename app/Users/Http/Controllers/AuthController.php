@@ -17,6 +17,12 @@ class AuthController extends ApiController
         $this->auth = $auth;
     }
 
+    /**
+     * Sign a user in and generate the jwt token
+     *
+     * @param LoginRequest $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function postLogin(LoginRequest $request)
     {
         $credentials = $request->only('username', 'password');
@@ -25,14 +31,16 @@ class AuthController extends ApiController
         {
             if (! $token = $this->auth->attempt($credentials))
             {
-                return response()->json(['error' => 'invalid_credentials'], 401);
+                $this->setStatusCode(404);
+                return $this->respondWithError('Invalid credentials', 510);
             }
         }
         catch (JWTException $e)
         {
-            return response()->json(['error' => 'could_not_create_token'], 500);
+            $this->setStatusCode(500);
+            return $this->respondWithError('unable to create token', 555);
         }
 
-        return response()->json(compact('token'));
+        return $this->respondWithArray(compact('token'));
     }
 }
