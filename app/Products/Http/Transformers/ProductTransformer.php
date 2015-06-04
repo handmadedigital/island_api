@@ -19,7 +19,7 @@ class ProductTransformer extends TransformerAbstract
             'name' => $product->name,
             'slug' => $product->slug,
             'description' => $product->description,
-            'image_src' => 'http://localhost:8000/media/product_images/'.$product->images[0]->src
+            'image_src' => 'https://island-api.herokuapp.com/media/product_images/'.$product->images[0]->src
         ];
     }
 

@@ -15,7 +15,7 @@ class CartTransformer extends TransformerAbstract
             'weight' => $cart->variants->weight,
             'cubic_feet' => $cart->variants->cubic_feet,
             'product_name' => $cart->variants->product->name,
-            'product_image' => 'http://localhost:8000/media/product_images/'.$cart->variants->product->images[0]->src,
+            'product_image' => 'https://island-api.herokuapp.com/media/product_images/'.$cart->variants->product->images[0]->src,
             'quantity' => (int) $cart->quantity,
             'price' => $cart->variants->price,
             'total_price' => $cart->variants->price * $cart->quantity,
