@@ -61,8 +61,8 @@
       <file leaf-file-name="CartController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Cart/Http/Controllers/CartController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.40736195" vertical-offset="130" max-vertical-offset="987">
-              <caret line="31" column="115" selection-start-line="31" selection-start-column="115" selection-end-line="31" selection-end-column="115" />
+            <state vertical-scroll-proportion="0.3815951" vertical-offset="193" max-vertical-offset="1071">
+              <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="35" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -806,8 +806,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Cart/Http/Controllers/CartController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40736195" vertical-offset="130" max-vertical-offset="987">
-          <caret line="31" column="115" selection-start-line="31" selection-start-column="115" selection-end-line="31" selection-end-column="115" />
+        <state vertical-scroll-proportion="0.3815951" vertical-offset="193" max-vertical-offset="1071">
+          <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="35" selection-end-column="11" />
           <folding />
         </state>
       </provider>
