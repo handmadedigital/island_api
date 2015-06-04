@@ -22,6 +22,6 @@ class ShippingController extends ApiController
     {
         $containers = $this->service->getShippingContainers();
 
-        $this->respondWithCollection($containers, new ShippingContainerTransformer);
+        return $this->respondWithCollection($containers, new ShippingContainerTransformer);
     }
 }
