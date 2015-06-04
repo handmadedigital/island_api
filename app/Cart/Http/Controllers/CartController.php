@@ -30,10 +30,6 @@ class CartController extends ApiController
         }
 
         $this->dispatch(new AddToCartCommand($request->cart['quantity'], $request->cart['variant_id'], $user->id));
-
-        return $this->respondWithArray([
-            'message' => 'Product was added to cart'
-        ]);
     }
 
     public function getUserCart()
