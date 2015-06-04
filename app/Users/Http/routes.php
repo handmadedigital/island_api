@@ -1,8 +1,7 @@
 <?php
 
-$router->get('/', function(){
-    return redirect()->route('get.users');
-});
+$router->get('/', ['as' => 'get.users', 'uses' => 'Users\Http\Controllers\UserController@getUsers']);
+
 
 $router->group(['prefix' => 'api/v1'], function($router){
     $router->post('/auth/login', ['uses' => 'Users\Http\Controllers\AuthController@postLogin']);
