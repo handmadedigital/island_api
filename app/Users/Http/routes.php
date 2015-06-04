@@ -1,8 +1,5 @@
 <?php
 
-$router->get('/', ['as' => 'get.users', 'uses' => 'Users\Http\Controllers\UserController@getUsers']);
-
-
 $router->group(['prefix' => 'api/v1'], function($router){
     $router->post('/auth/login', ['uses' => 'Users\Http\Controllers\AuthController@postLogin']);
     $router->post('/auth/refresh', ['middleware' => 'jwt.refresh']);
