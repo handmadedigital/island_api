@@ -1,7 +1,7 @@
 <?php
 
 $router->get('/', function(){
-    return 'hello';
+    return redirect()->route('get.users');
 });
 
 $router->group(['prefix' => 'api/v1'], function($router){
@@ -9,7 +9,7 @@ $router->group(['prefix' => 'api/v1'], function($router){
     $router->post('/auth/refresh', ['middleware' => 'jwt.refresh']);
 
     $router->group(['middleware' => ['before' => 'jwt.auth']], function($router){
-        $router->get('/users', ['uses' => 'Users\Http\Controllers\UserController@getUsers']);
+        $router->get('/users', ['as' => 'get.users', 'uses' => 'Users\Http\Controllers\UserController@getUsers']);
         $router->get('/users/{slug}', ['uses' => 'Users\Http\Controllers\UserController@getUser']);
     });
 });
