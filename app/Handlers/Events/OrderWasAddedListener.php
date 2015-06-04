@@ -19,7 +19,7 @@ class OrderWasAddedListener
 
     public function addOrderDetails(OrderWasAdded $event)
     {
-        $this->dispatch(new AddOrderDetailCommand($event->order->id, $this->request->order['variant_ids'], $this->request->order['quantities']));
+        $this->dispatch(new AddOrderDetailCommand($event->order->id, $this->request->variant_ids, $this->request->quantities));
     }
 
     public function removeCartItems(OrderWasAdded $event)

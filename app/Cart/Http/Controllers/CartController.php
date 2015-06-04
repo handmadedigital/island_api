@@ -29,7 +29,7 @@ class CartController extends ApiController
             $this->respondWithError('User not found', 420);
         }
 
-        $this->dispatch(new AddToCartCommand($request->cart['quantity'], $request->cart['variant_id'], $user->id));
+        $this->dispatch(new AddToCartCommand($request->quantity, $request->variant_id, $user->id));
 
         return $this->respondWithArray([
             'message' => 'Product was added to cart'

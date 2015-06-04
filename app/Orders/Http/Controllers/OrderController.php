@@ -33,7 +33,7 @@ class OrderController extends ApiController
             $this->respondWithError('User not found', 420);
         }
 
-        $this->dispatch(new AddOrderCommand($user->id, $request->order['weight'], $request->order['cubic_feet'], $request->order['total_price']));
+        $this->dispatch(new AddOrderCommand($user->id, $request->weight, $request->cubic_feet, $request->total_price));
 
         return $this->respondWithArray([
             'message' => 'Order was added!'
