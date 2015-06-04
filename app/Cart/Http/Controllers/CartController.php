@@ -48,7 +48,7 @@ class CartController extends ApiController
 
         $this->fractal->parseIncludes($includes);
 
-        $cart = $user->cart;
+        $cart = $user->cart->latest();
 
         return $this->respondWithCollection($cart, new CartTransformer());
     }

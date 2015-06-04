@@ -14,7 +14,7 @@ class OrderRepository
 
     public function getByUserId($user_id)
     {
-        return $this->model->where('user_id', '=', $user_id)->get();
+        return $this->model->where('user_id', '=', $user_id)->latest()->get();
     }
 
     public function getOrderByOrderNumber($order_number)
