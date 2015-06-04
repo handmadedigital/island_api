@@ -33,7 +33,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	public function cart()
 	{
-		return $this->hasMany('ThreeAccents\Cart\Entities\Cart');
+		return $this->hasMany('ThreeAccents\Cart\Entities\Cart')->latest();
 	}
 
 }
