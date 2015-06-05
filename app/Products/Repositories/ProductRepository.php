@@ -64,17 +64,17 @@ class ProductRepository
         {
             $count = count($product->option_value);
 
+            $model = new Product();
+
+            $model->name = $product->name;
+            $model->description = $product->description;
+            $model->slug = $this->sluggify($product->name.rand(10000,99999));
+
+            $model->save();
+
             for($i = 0; $i < $count; $i++)
             {
                 $is_master = false;
-
-                $model = new Product();
-
-                $model->name = $product->name;
-                $model->description = $product->description;
-                $model->slug = $this->sluggify($product->name.rand(10000,99999));
-
-                $model->save();
 
                 if($i === 0) $is_master = true;
 
