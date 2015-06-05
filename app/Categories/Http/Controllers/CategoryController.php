@@ -40,7 +40,7 @@ class CategoryController extends ApiController
 
     public function getCategory($category_slug)
     {
-        $category = Category::where('slug', '=', $category_slug);
+        $category = Category::where('slug', '=', $category_slug)->first();
 
         $products = $category->products;
 
