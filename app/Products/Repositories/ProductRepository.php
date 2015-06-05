@@ -1,6 +1,7 @@
 <?php namespace ThreeAccents\Products\Repositories;
 
 use ThreeAccents\Products\Entities\Product;
+use ThreeAccents\Products\Entities\ProductImage;
 use ThreeAccents\Products\Entities\Variant;
 
 class ProductRepository
@@ -71,6 +72,12 @@ class ProductRepository
             $model->slug = $this->sluggify($product->name.rand(10000,99999));
 
             $model->save();
+
+            $image = new ProductImage([
+                'src' => 'default.png'
+            ]);
+
+            $model->images()->save($image);
 
             for($i = 0; $i < $count; $i++)
             {
