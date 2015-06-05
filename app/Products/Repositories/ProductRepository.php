@@ -101,7 +101,9 @@ class ProductRepository
                     'price' => $product->price[$i],
                 ]);
 
-                $model->variants()->save($variant);
+                $model_variant = $model->variants()->save($variant);
+
+                
             }
         }
     }
