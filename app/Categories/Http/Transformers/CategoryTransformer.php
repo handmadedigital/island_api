@@ -15,7 +15,8 @@ class CategoryTransformer extends TransformerAbstract
         return [
             'id' => (int) $category->id,
             'name' => $category->name,
-            'image_src' => 'http://localhost:8000/static/img/'.$category->image,
+            'slug' => $category->slug,
+            'image_src' => 'island-api.herokuapp.com/static/img/'.$category->image,
         ];
     }
 
