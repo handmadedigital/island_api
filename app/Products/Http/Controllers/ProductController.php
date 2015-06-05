@@ -2,9 +2,11 @@
 
 use Illuminate\Support\Facades\Input;
 use League\Fractal\Manager;
+use ThreeAccents\Commands\AddProductCommand;
 use ThreeAccents\Core\Http\Controllers\ApiController;
 use ThreeAccents\Exceptions\ProductNotFoundException;
 use ThreeAccents\Products\Entities\Product;
+use ThreeAccents\Products\Http\Requests\AddProductRequest;
 use ThreeAccents\Products\Http\Transformers\ProductTransformer;
 use ThreeAccents\Products\Services\ProductService;
 
@@ -26,6 +28,8 @@ class ProductController extends ApiController
     }
 
     /**
+     * get all of the products
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function getProducts()
@@ -38,9 +42,15 @@ class ProductController extends ApiController
 
         $products = $this->service->getProducts($limit);
 
-        return  $this->respondWithCollection($products, new ProductTransformer, 'products');
+        return  $this->respondWithCollection($products, new ProductTransformer);
     }
 
+    /**
+     * get an individual product
+     *
+     * @param $product_slug
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function getProduct($product_slug)
     {
         $includes = Input::get('includes') ?: "";
@@ -57,6 +67,21 @@ class ProductController extends ApiController
             return $this->respondWithError($e->getMessage(), 420);
         }
 
-        return  $this->respondWithItem($product, new ProductTransformer, 'product');
+        return  $this->respondWithItem($product, new ProductTransformer);
+    }
+
+    /**
+     * Add a new product or variant
+     *
+     * @param AddProductRequest $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function postAddProduct(AddProductRequest $request)
+    {
+        $this->dispatchFrom(AddProductCommand::class, $request);
+
+        return $this->respondWithArray([
+            'message'=>'Product was added!'
+        ]);
     }
 }
