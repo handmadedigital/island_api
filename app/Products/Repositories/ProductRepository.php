@@ -49,6 +49,12 @@ class ProductRepository
 
             $this->model->save();
 
+            $image = new ProductImage([
+                'src' => 'default.png'
+            ]);
+
+            $this->model->images()->save($image);
+
             $variant = new Variant([
                 'is_master' => true,
                 'length' => $product->length,
