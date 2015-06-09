@@ -1,7 +1,5 @@
 <?php
 
-dd(Hash::make('carmen'));
-
 $router->group(['prefix' => 'api/v1'], function($router){
     $router->post('/auth/login', ['uses' => 'Users\Http\Controllers\AuthController@postLogin']);
     $router->post('/auth/refresh', ['middleware' => 'jwt.refresh']);
