@@ -43,4 +43,11 @@ class AuthController extends ApiController
 
         return $this->respondWithArray(compact('token'));
     }
+
+    public function refreshToken()
+    {
+        $token =  $this->auth->parseToken()->refresh();
+
+        return response()->json(compact('token'));
+    }
 }

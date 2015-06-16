@@ -2,7 +2,7 @@
 
 $router->group(['prefix' => 'api/v1'], function($router){
     $router->post('/auth/login', ['uses' => 'Users\Http\Controllers\AuthController@postLogin']);
-    $router->post('/auth/refresh', ['middleware' => 'jwt.refresh']);
+    $router->post('/auth/refresh', ['uses' => 'Users\Http\Controllers\AuthController@refreshToken']);
 
     $router->group(['middleware' => ['before' => 'jwt.auth']], function($router){
         $router->get('/users', ['as' => 'get.users', 'uses' => 'Users\Http\Controllers\UserController@getUsers']);

@@ -2,6 +2,8 @@
 
 use ThreeAccents\Products\Entities\Product;
 use ThreeAccents\Products\Entities\ProductImage;
+use ThreeAccents\Products\Entities\ProductOption;
+use ThreeAccents\Products\Entities\ProductOptionValue;
 use ThreeAccents\Products\Entities\Variant;
 
 class ProductRepository
@@ -71,25 +73,35 @@ class ProductRepository
         {
             $count = count($product->option_value);
 
-            $model = new Product();
+            $this->model->name = $product->name;
+            $this->model->description = $product->description;
+            $this->model->slug = $product->name.rand(10000,99999);
 
-            $model->name = $product->name;
-            $model->description = $product->description;
-            $model->slug = $this->sluggify($product->name.rand(10000,99999));
-
-            $model->save();
+            $this->model->save();
 
             $image = new ProductImage([
                 'src' => 'default.png'
             ]);
 
-            $model->images()->save($image);
+            $this->model->images()->save($image);
+
+            $option = new ProductOption([
+                'name' => $product->option
+            ]);
+
+            $option_model = $this->model->options()->save($option);
 
             for($i = 0; $i < $count; $i++)
             {
                 $is_master = false;
 
                 if($i === 0) $is_master = true;
+
+                $option_value = new ProductOptionValue([
+                    'name' => $product->option_value[$i],
+                ]);
+
+                $option_value_model = $option_model->values->save($option_value);
 
                 $variant = new Variant([
                     'is_master' => $is_master,
@@ -101,9 +113,7 @@ class ProductRepository
                     'price' => $product->price[$i],
                 ]);
 
-                $model_variant = $model->variants()->save($variant);
-
-                
+                $option_value_model->variants()->save($variant);
             }
         }
     }
