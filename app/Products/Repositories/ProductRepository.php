@@ -1,5 +1,6 @@
 <?php namespace ThreeAccents\Products\Repositories;
 
+use Illuminate\Support\Facades\DB;
 use ThreeAccents\Products\Entities\Product;
 use ThreeAccents\Products\Entities\ProductImage;
 use ThreeAccents\Products\Entities\ProductOption;
@@ -71,9 +72,9 @@ class ProductRepository
         }
         else
         {
-            $count = count($product->option_value);
+            DB::statement("SET foreign_key_checks = 0");
 
-            var_dump($count);
+            $count = count($product->option_value);
 
             $this->model->name = $product->name;
             $this->model->description = $product->description;
@@ -91,13 +92,10 @@ class ProductRepository
                 'name' => $product->option
             ]);
 
-            $option_model = $this->model->options();
-
-            $option_model->save($option);
+            $option_model = $this->model->options()->save($option);
 
             for($i = 0; $i < $count; $i++)
             {
-                dd('reaches');
                 $is_master = false;
 
                 if($i === 0) $is_master = true;
@@ -116,6 +114,7 @@ class ProductRepository
                     'cubic_feet' => $product->cubic_feet[$i],
                     'weight' => $product->weight[$i],
                     'price' => $product->price[$i],
+                    'product_id' => $this->model->id,
                 ]);
 
                 $option_value_model->variants()->save($variant);
