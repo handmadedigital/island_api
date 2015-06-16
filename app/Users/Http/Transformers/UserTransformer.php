@@ -11,6 +11,7 @@ class UserTransformer extends TransformerAbstract
             'id' => (int) $user->id,
             'username' => $user->username,
             'slug' => $user->slug,
+            'is_admin' => (bool) $user->is_admin,
         ];
     }
 }
