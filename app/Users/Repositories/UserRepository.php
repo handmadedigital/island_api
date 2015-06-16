@@ -16,8 +16,8 @@ class UserRepository
         return $this->model->get();
     }
 
-    public function findBySlug($slug)
+    public function findById($user_id)
     {
-        return $this->model->where('slug', '=', $slug)->first();
+        return $this->model->where('id', '=', $user_id)->first();
     }
 }

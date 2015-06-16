@@ -6,6 +6,6 @@ $router->group(['prefix' => 'api/v1'], function($router){
 
     $router->group(['middleware' => ['before' => 'jwt.auth']], function($router){
         $router->get('/users', ['as' => 'get.users', 'uses' => 'Users\Http\Controllers\UserController@getUsers']);
-        $router->get('/users/{slug}', ['uses' => 'Users\Http\Controllers\UserController@getUser']);
+        $router->get('/users/{user_id}', ['uses' => 'Users\Http\Controllers\UserController@getUser']);
     });
 });

@@ -41,13 +41,13 @@ class UserController extends ApiController
      * @param $slug
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function getUser($slug)
+    public function getUser($user_id)
     {
         $includes = Input::get('includes') ?: "";
 
         $this->fractal->parseIncludes($includes);
 
-        $user = $this->service->getUser($slug);
+        $user = $this->service->getUser($user_id);
 
         return  $this->respondWithItem($user, new UserTransformer, 'user');
     }

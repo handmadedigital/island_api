@@ -16,8 +16,8 @@ class UserService
         return $this->userRepo->getAll();
     }
 
-    public function getUser($slug)
+    public function getUser($user_id)
     {
-        return $this->userRepo->findBySlug($slug);
+        return $this->userRepo->findById($user_id);
     }
 }
