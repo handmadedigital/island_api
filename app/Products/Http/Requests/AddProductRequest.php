@@ -8,7 +8,6 @@ class AddProductRequest extends Request
         return [
             'name' => 'required',
             'description' => 'required',
-            'option_value' => 'required_if:option',
             'width' => 'required',
             'length' => 'required',
             'height' => 'required',
