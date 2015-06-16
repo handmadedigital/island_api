@@ -89,7 +89,9 @@ class ProductRepository
                 'name' => $product->option
             ]);
 
-            $option_model = $this->model->options()->save($option);
+            $option_model = $this->model->options();
+
+            $option_model->save($option);
 
             for($i = 0; $i < $count; $i++)
             {
