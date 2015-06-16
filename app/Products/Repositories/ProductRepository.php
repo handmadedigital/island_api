@@ -73,6 +73,8 @@ class ProductRepository
         {
             $count = count($product->option_value);
 
+            var_dump($count);
+
             $this->model->name = $product->name;
             $this->model->description = $product->description;
             $this->model->slug = $product->name.rand(10000,99999);
@@ -95,6 +97,7 @@ class ProductRepository
 
             for($i = 0; $i < $count; $i++)
             {
+                dd('reaches');
                 $is_master = false;
 
                 if($i === 0) $is_master = true;
@@ -103,7 +106,7 @@ class ProductRepository
                     'name' => $product->option_value[$i],
                 ]);
 
-                $option_value_model = $option_model->values->save($option_value);
+                $option_value_model = $option_model->values()->save($option_value);
 
                 $variant = new Variant([
                     'is_master' => $is_master,

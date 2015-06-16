@@ -28,8 +28,8 @@
       <file leaf-file-name="ProductRepository.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Products/Repositories/ProductRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33251533" vertical-offset="1682" max-vertical-offset="3192">
-              <caret line="93" column="41" selection-start-line="93" selection-start-column="41" selection-end-line="93" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.17791411" vertical-offset="1430" max-vertical-offset="3255">
+              <caret line="75" column="29" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
               <folding>
                 <element signature="e#53#96#0#PHP" expanded="true" />
               </folding>
@@ -693,8 +693,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Products/Repositories/ProductRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33251533" vertical-offset="1682" max-vertical-offset="3192">
-          <caret line="93" column="41" selection-start-line="93" selection-start-column="41" selection-end-line="93" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.17791411" vertical-offset="1430" max-vertical-offset="3255">
+          <caret line="75" column="29" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
           <folding>
             <element signature="e#53#96#0#PHP" expanded="true" />
           </folding>
