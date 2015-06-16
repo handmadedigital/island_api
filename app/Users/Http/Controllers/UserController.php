@@ -38,7 +38,7 @@ class UserController extends ApiController
     }
 
     /**
-     * @param $slug
+     * @param $user_id
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function getUser($user_id)
@@ -49,6 +49,6 @@ class UserController extends ApiController
 
         $user = $this->service->getUser($user_id);
 
-        return  $this->respondWithItem($user, new UserTransformer, 'user');
+        return  $this->respondWithItem($user, new UserTransformer);
     }
 }
