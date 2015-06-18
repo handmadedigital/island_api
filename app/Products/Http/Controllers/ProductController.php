@@ -6,7 +6,9 @@ use ThreeAccents\Commands\AddProductCommand;
 use ThreeAccents\Core\Http\Controllers\ApiController;
 use ThreeAccents\Exceptions\ProductNotFoundException;
 use ThreeAccents\Products\Entities\Product;
+use ThreeAccents\Products\Entities\ProductImage;
 use ThreeAccents\Products\Http\Requests\AddProductRequest;
+use ThreeAccents\Products\Http\Transformers\ProductImageTransformer;
 use ThreeAccents\Products\Http\Transformers\ProductTransformer;
 use ThreeAccents\Products\Services\ProductService;
 
@@ -83,5 +85,12 @@ class ProductController extends ApiController
         return $this->respondWithArray([
             'message'=>'Product was added!'
         ]);
+    }
+
+    public function getProductImages()
+    {
+        $images = ProductImage::all();
+
+        return $this->respondWithCollection($images, new ProductImageTransformer());
     }
 }
