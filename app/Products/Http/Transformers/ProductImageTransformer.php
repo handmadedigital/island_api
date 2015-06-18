@@ -11,7 +11,7 @@ class ProductImageTransformer extends TransformerAbstract
     {
         return [
             'id' => (int) $image->id,
-            'image_src' => $image->src
+            'image_src' => 'https://island-api.herokuapp.com/media/product_images/'.$image->src
         ];
     }
 }
