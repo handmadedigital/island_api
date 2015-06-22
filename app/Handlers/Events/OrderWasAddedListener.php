@@ -30,7 +30,9 @@ class OrderWasAddedListener
 
     public function sendConfirmationEmail(OrderWasAdded $event)
     {
-        Mail::send('emails.order-confirmation', function ($message) {
+        $data = [];
+
+        Mail::send('emails.order-confirmation', $data, function ($message) {
             $message->to('rodrigo@handmade-digital.com');
         });
     }
