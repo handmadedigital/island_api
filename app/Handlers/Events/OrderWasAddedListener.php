@@ -2,6 +2,7 @@
 
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use ThreeAccents\Cart\Entities\Cart;
 use ThreeAccents\Commands\AddOrderDetailCommand;
 use ThreeAccents\Events\OrderWasAdded;
@@ -29,6 +30,8 @@ class OrderWasAddedListener
 
     public function sendOrderEmail(OrderWasAdded $event)
     {
-
+        Mail::send('emails.order-confirmation', function ($message) {
+            $message->to('rodrigo@handmade-digital.com');
+        });
     }
 }
