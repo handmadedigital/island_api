@@ -4,7 +4,7 @@
 
 <ul>
     <li><strong>order number: </strong>{{$order_number}}</li>
-    <li><strong>cubic feet: </strong>{{$cubic_feet}}</li>
-    <li><strong>weight: </strong>{{$weight}}</li>
-    <li><strong>price: </strong>{{$price}}</li>
+    <li><strong>cubic feet: </strong>{{$cubic_feet}}ft</li>
+    <li><strong>weight: </strong>{{$weight}}lbs</li>
+    <li><strong>price: </strong>{{$price}}.00</li>
 </ul>
