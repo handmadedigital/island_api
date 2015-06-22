@@ -27,4 +27,9 @@ class Order extends Model
 	{
 		return $this->hasMany('ThreeAccents\Orders\Entities\OrderDetail');
 	}
+
+	public function user()
+	{
+		return $this->belongsTo('ThreeAccents\Users\Entities\User');
+	}
 }

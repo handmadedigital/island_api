@@ -37,9 +37,9 @@ class OrderWasAddedListener
             'price' => $event->order->total_price,
         ];
 
-        Mail::send('emails.order-confirmation', $data, function ($message) {
+        Mail::send('emails.order-confirmation', $data, function ($message) use($event){
             $message->from('rodrigo@threeaccents.com', 'Island Buyers Club');
-            $message->to('rodrigo@handmade-digital.com');
+            $message->to($event->order->user->email);
         });
     }
 }
