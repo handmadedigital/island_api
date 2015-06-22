@@ -7,7 +7,7 @@ class Variant extends Model
     /**
      * @var array
      */
-    protected $fillable = ['name', 'price', 'is_master', 'width', 'weight', 'length', 'height', 'product_id'];
+    protected $fillable = ['name', 'price', 'is_master', 'width', 'weight', 'length', 'height', 'product_id', 'cubic_feet', 'part_number'];
 
     /*******************************************/
     /*
