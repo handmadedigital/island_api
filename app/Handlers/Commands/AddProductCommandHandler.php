@@ -24,7 +24,7 @@ class AddProductCommandHandler
 	 */
 	public function handle(AddProductCommand $command)
 	{
-		$product = Product::add($command->getName(), $command->getDescription(), $command->getLength(), $command->getWidth(), $command->getHeight(), $command->getCubicFeet(), $command->getWeight(), $command->getPrice(), $command->getOption(), $command->getOptionValue());
+		$product = Product::add($command->getName(), $command->getDescription(), $command->getLength(), $command->getWidth(), $command->getHeight(), $command->getCubicFeet(), $command->getWeight(), $command->getPrice(), $command->getOption(), $command->getOptionValue(), $command->getPartNumber());
 
 		$this->productRepo->add($product);
 	}

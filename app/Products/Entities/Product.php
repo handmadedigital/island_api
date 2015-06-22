@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-	protected $fillable = ['name', 'description', 'length', 'width', 'height', 'cubic_feet', 'weight', 'price', 'option', 'option_value'];
+	protected $fillable = ['name', 'description', 'length', 'width', 'height', 'cubic_feet', 'weight', 'price', 'option', 'option_value', 'part_number'];
 
 	/**************************/
 	/*
@@ -12,9 +12,9 @@ class Product extends Model
 	 */
 	/**************************/
 
-	public static function add($name, $description, $length, $width, $height, $cubic_feet, $weight, $price, $option, $option_value)
+	public static function add($name, $description, $length, $width, $height, $cubic_feet, $weight, $price, $option, $option_value, $part_number)
 	{
-		return new static(compact('name', 'description', 'length', 'width', 'height', 'cubic_feet', 'weight', 'price', 'option', 'option_value'));
+		return new static(compact('name', 'description', 'length', 'width', 'height', 'cubic_feet', 'weight', 'price', 'option', 'option_value', 'part_number'));
 	}
 
 	/**************************/

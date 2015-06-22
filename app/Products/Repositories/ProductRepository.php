@@ -66,6 +66,7 @@ class ProductRepository
                 'cubic_feet' => $product->cubic_feet,
                 'weight' => $product->weight,
                 'price' => $product->price,
+                'part_number' => $product->part_number
             ]);
 
             $this->model->variants()->save($variant);
@@ -115,6 +116,7 @@ class ProductRepository
                     'weight' => $product->weight[$i],
                     'price' => $product->price[$i],
                     'product_id' => $this->model->id,
+                    'part_number' => $product->part_number
                 ]);
 
                 $option_value_model->variants()->save($variant);

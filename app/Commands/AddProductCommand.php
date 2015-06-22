@@ -12,8 +12,9 @@ class AddProductCommand extends Command
 	protected $price;
 	protected $option;
 	protected $option_value;
+	protected $part_number;
 
-	function __construct($name, $description, $length, $width, $height, $weight, $cubic_feet, $price, $option = null, $option_value = null)
+	function __construct($name, $description, $length, $width, $height, $weight, $cubic_feet, $price, $option = null, $option_value = null, $part_number)
 	{
 		$this->name = $name;
 		$this->description = $description;
@@ -25,6 +26,7 @@ class AddProductCommand extends Command
 		$this->price = $price;
 		$this->option = $option;
 		$this->option_value = $option_value;
+		$this->part_number = $part_number;
 	}
 
 	/**
@@ -105,5 +107,13 @@ class AddProductCommand extends Command
 	public function getOptionValue()
 	{
 		return $this->option_value;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getPartNumber()
+	{
+		return $this->part_number;
 	}
 }
