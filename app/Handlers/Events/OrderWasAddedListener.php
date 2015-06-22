@@ -33,6 +33,7 @@ class OrderWasAddedListener
         $data = [];
 
         Mail::send('emails.order-confirmation', $data, function ($message) {
+            $message->from('rodrigo@threeaccents.com', 'Island Buyers Club');
             $message->to('rodrigo@handmade-digital.com');
         });
     }
