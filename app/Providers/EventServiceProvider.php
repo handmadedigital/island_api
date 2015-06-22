@@ -14,6 +14,7 @@ class EventServiceProvider extends ServiceProvider {
 		'ThreeAccents\Events\OrderWasAdded' => [
 			'ThreeAccents\Handlers\Events\OrderWasAddedListener@addOrderDetails',
 			'ThreeAccents\Handlers\Events\OrderWasAddedListener@removeCartItems',
+			'ThreeAccents\Handlers\Events\OrderWasAddedListener@sendConfirmationEmail',
 		],
 	];
 

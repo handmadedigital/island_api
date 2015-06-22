@@ -28,7 +28,7 @@ class OrderWasAddedListener
         Cart::where('user_id', '=', $event->order->user_id)->delete();
     }
 
-    public function sendOrderEmail(OrderWasAdded $event)
+    public function sendConfirmationEmail(OrderWasAdded $event)
     {
         Mail::send('emails.order-confirmation', function ($message) {
             $message->to('rodrigo@handmade-digital.com');
