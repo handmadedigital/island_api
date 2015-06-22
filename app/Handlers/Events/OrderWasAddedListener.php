@@ -30,7 +30,12 @@ class OrderWasAddedListener
 
     public function sendConfirmationEmail(OrderWasAdded $event)
     {
-        $data = [];
+        $data = [
+            'order_number' => $event->order->order_number,
+            'cubic_feet' => $event->order->cubic_feet,
+            'weight' => $event->order->weight,
+            'price' => $event->order->total_price,
+        ];
 
         Mail::send('emails.order-confirmation', $data, function ($message) {
             $message->from('rodrigo@threeaccents.com', 'Island Buyers Club');
