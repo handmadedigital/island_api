@@ -26,4 +26,9 @@ class OrderWasAddedListener
     {
         Cart::where('user_id', '=', $event->order->user_id)->delete();
     }
+
+    public function sendOrderEmail(OrderWasAdded $event)
+    {
+
+    }
 }
