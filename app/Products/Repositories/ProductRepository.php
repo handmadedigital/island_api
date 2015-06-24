@@ -46,6 +46,7 @@ class ProductRepository
     {
         if( $product->option === null)
         {
+            dd('yes');
             $this->model->name = $product->name;
             $this->model->description = $product->description;
             $this->model->slug = $this->sluggify($product->name).rand(10000,99999);
