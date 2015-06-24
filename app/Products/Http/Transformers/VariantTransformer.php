@@ -13,6 +13,8 @@ class VariantTransformer extends TransformerAbstract
     {
         $option_value = null;
 
+        dd($variant->optionValues->toArray());
+
         if( ! empty($variant->optionValues->toArray())) $option_value =  $variant->optionValues[0]->name;
 
         return [
