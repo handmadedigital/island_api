@@ -48,7 +48,7 @@ class ProductRepository
         {
             $this->model->name = $product->name;
             $this->model->description = $product->description;
-            $this->model->slug = $product->name.rand(10000,99999);
+            $this->model->slug = $this->sluggify($product->name).rand(10000,99999);
 
             $this->model->save();
 
@@ -79,7 +79,7 @@ class ProductRepository
 
             $this->model->name = $product->name;
             $this->model->description = $product->description;
-            $this->model->slug = $product->name.rand(10000,99999);
+            $this->model->slug = $this->sluggify($product->name).rand(10000,99999);
 
             $this->model->save();
 
