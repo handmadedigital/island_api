@@ -19,6 +19,7 @@ class CartTransformer extends TransformerAbstract
             'quantity' => (int) $cart->quantity,
             'price' => $cart->variants->price,
             'total_price' => $cart->variants->price * $cart->quantity,
+            'ibc_part_number' => $cart->variant->part_number
         ];
     }
 }

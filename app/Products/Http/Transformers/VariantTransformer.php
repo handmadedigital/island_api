@@ -22,7 +22,8 @@ class VariantTransformer extends TransformerAbstract
             'weight' => $variant->weight,
             'quantity' => (int)$variant->quantity,
             'cubic_feet' => $variant->cubic_feet,
-            'option_value' => $option_value
+            'option_value' => $option_value,
+            'ibc_part_number' => $variant->part_number
         ];
     }
 
